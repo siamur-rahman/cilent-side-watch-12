@@ -10,7 +10,7 @@ const Service = ({ service }) => {
     const { _id, name, description, img } = service;
     // const { id } = service;
     return (
-        <Container id="service" className=" p-5 service-cards">
+        <Container className=" p-5 service-cards">
 
             <Row>
                 <Col md={5}>
@@ -34,9 +34,10 @@ const Service = ({ service }) => {
             <Link to={`/home/${_id}`}>
                 <div className=" w-100 align-items-center ">
                     <button className="  btn-warn mt-3">
-                        <FontAwesomeIcon icon={faShoppingCart} /> Book now </button>
+                        <FontAwesomeIcon icon={faShoppingCart} /> Buy now </button>
                 </div>
             </Link>
+
         </Container>
     );
 };

@@ -16,6 +16,8 @@ import PrivateRoute from "./Components/pages/PrivateRoute/PrivateRoute";
 import Register from "./Components/pages/ReGister/Register";
 import ServicesDetails from "./Components/pages/ServiceDetails/ServicesDetails";
 import AddNewServices from "./Components/pages/AddNewServices/AddNewServices";
+// import AllService from "./Components/pages/AllService/AllService";
+import AllServices from "./Components/pages/AllServices/AllServices";
 
 
 
@@ -29,6 +31,9 @@ function App() {
           </Route>
           <Route exact path="/home">
             <Home></Home>
+          </Route>
+          <Route exact path="/service">
+            <AllServices></AllServices>
           </Route>
           <Route exact path="/about">
             <About></About>
@@ -53,7 +58,7 @@ function App() {
           </Route>
         </Switch>
       </Router >
-    </AuthProvider>
+    </AuthProvider >
   );
 }
 

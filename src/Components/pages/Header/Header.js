@@ -21,7 +21,7 @@ const Header = () => {
                   <Navbar.Toggle />
                   <Navbar.Collapse className="justify-content-end text-white">
                      <Nav.Link as={HashLink} to="/home#home">Home</Nav.Link>
-                     <Nav.Link as={HashLink} to="/home#service">Explore pages</Nav.Link>
+                     <Nav.Link as={Link} to="/service">Explore pages</Nav.Link>
 
                      {user?.email ?
                         <div className="text-white bg-secondary d-flex " >
