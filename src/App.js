@@ -18,6 +18,8 @@ import ServicesDetails from "./Components/pages/ServiceDetails/ServicesDetails";
 import AddNewServices from "./Components/pages/AddNewServices/AddNewServices";
 // import AllService from "./Components/pages/AllService/AllService";
 import AllServices from "./Components/pages/AllServices/AllServices";
+import DashBoard from "./Components/pages/DashBoard/DashBoard/DashBoard";
+import Payments from "./Components/pages/Payments/Payments";
 
 
 
@@ -41,8 +43,14 @@ function App() {
           <PrivateRoute exact path="/home/:id">
             <ServicesDetails></ServicesDetails>
           </PrivateRoute>
+          <PrivateRoute exact path="/dashboard">
+            <DashBoard></DashBoard>
+          </PrivateRoute>
           <PrivateRoute path="/order">
             <MyOrders></MyOrders>
+          </PrivateRoute>
+          <PrivateRoute path="/pay">
+            <Payments></Payments>
           </PrivateRoute>
           <PrivateRoute path="/addNewService">
             <AddNewServices></AddNewServices>

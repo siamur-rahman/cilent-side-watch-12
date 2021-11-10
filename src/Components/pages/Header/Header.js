@@ -7,6 +7,7 @@ import { HashLink } from 'react-router-hash-link';
 import Logo from '../../../logo-.jpg';
 import useFirebase from '../../hooks/useFirebase';
 import { Link } from 'react-router-dom';
+import { Box } from '@mui/system';
 
 const Header = () => {
    const { user, logOut } = useFirebase();
@@ -23,18 +24,19 @@ const Header = () => {
                      <Nav.Link as={HashLink} to="/home#home">Home</Nav.Link>
                      <Nav.Link as={Link} to="/service">Explore pages</Nav.Link>
 
+
+                     {/* //admin er jpnnp */}
+                     {/* <Nav.Link as={Link} to="/addNewService">Add New  Products</Nav.Link> */}
+                     {/*  */}
                      {user?.email ?
-                        <div className="text-white bg-secondary d-flex " >
-                           <Nav.Link as={Link} to="/order">Pay</Nav.Link>
-                           <Nav.Link as={Link} to="/order">Orders</Nav.Link>
+                        <Box className="text-white bg-secondary d-flex " >
 
+                           <Nav.Link as={Link} to="/dashboard">Dash Board</Nav.Link>
 
-                           <Nav.Link as={Link} to="/addNewService">Add New  Products</Nav.Link>
-                           <Nav.Link as={Link} to="/about">About</Nav.Link>
                            <Navbar.Text className="mx-2">
-                              Logged in success  <a href="#login">{user?.displayName}</a>
+                              Logged in  <a href="#login">{user?.displayName}</a>
                            </Navbar.Text>
-                        </div>
+                        </Box>
 
                         :
                         <Navbar.Text>
