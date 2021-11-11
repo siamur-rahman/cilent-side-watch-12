@@ -24,11 +24,17 @@ import Payments from '../../Payments/Payments';
 import useFirebase from '../../../hooks/useFirebase';
 import Button from '@restart/ui/esm/Button';
 
+// import * as React from 'react';
+// import PropTypes from 'prop-types';
+// import Box from '@mui/material/Box';
+
+
 const drawerWidth = 200;
 
 function DashBoard(props) {
    const { window } = props;
    const [mobileOpen, setMobileOpen] = React.useState(false);
+   // const { sx, ...other } = props;
 
    const handleDrawerToggle = () => {
       setMobileOpen(!mobileOpen);
@@ -39,13 +45,28 @@ function DashBoard(props) {
       <Box>
          <Toolbar />
          <Divider />
+         <Box
+            sx={{
 
-         <Link to="/pay"><Button color="inherit">Payments</Button></Link>
-         <Link to="/order"><Button color="inherit">Orders</Button></Link>
-         {/* <Button className="text-white bg-primary m-2" onClick={logOut} > Logout </Button> */}
-         <Button onClick={logout} color="inherit">Logout</Button>
+               display: 'flex',
+               alignItems: 'flex-start',
+               flexDirection: 'column',
+               p: 1,
+               m: 1,
+               bgcolor: 'background.paper',
+            }}
 
-      </Box>
+         >
+            <Link to="/pay"><Button color="inherit">Payments</Button></Link>
+            <Link to="/order"><Button color="inherit">Orders</Button></Link>
+            <Link to="/addNewService"><Button color="inherit">Add products</Button></Link>
+            <Link to="/order"><Button color="inherit">Make Admin</Button></Link>
+            <Link to="/order"><Button color="inherit">Manage all Orders</Button></Link>
+
+
+            <Button onClick={logout} color="inherit">Logout</Button>
+         </Box>
+      </Box >
    );
 
    const container = window !== undefined ? () => window().document.body : undefined;
