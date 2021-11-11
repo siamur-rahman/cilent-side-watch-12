@@ -10,21 +10,24 @@ inializeAuthentication();
 
 const Register = () => {
    const { signInUsingGoogle } = useFirebase();
+
    const [name, setName] = useState('');
    const [user, setUser] = useState({});
    const [email, setEmail] = useState('');
    const [Password, setPassword] = useState('');
    const [error, setError] = useState('');
    const [isLogin, setIsLogin] = useState(false);
-   const location = useLocation()
+   const location = useLocation();
    const history = useHistory();
 
 
    const redirect_uri = location.state?.from || '/home';
 
    const googleLogIn = () => {
-      signInUsingGoogle()
+      signInUsingGoogle(auth)
          .then(result => {
+            const user = result.user;
+            saveUser(user.email, user.displayName, 'PUT')
             history.push(redirect_uri);
          })
    }
@@ -90,6 +93,8 @@ const Register = () => {
                photo: photoURL
             };
             setUser(logInUser);
+            saveUser(email, displayName, "POST")
+
             setError('');
             varifyEmail();
             setUserName();
@@ -116,6 +121,21 @@ const Register = () => {
    const handleResetPassword = () => {
       sendPasswordResetEmail(auth, email)
          .then(result => { })
+   }
+
+   //user save to database
+   const saveUser = (email, displayName, method) => {
+      const user = { email, displayName };
+      fetch('https://localhost:5000/user',
+         {
+            method: "POST",
+            headers: {
+               'content-type': 'application.json'
+            },
+            body: JSON.stringify(user)
+
+         })
+         .then()
    }
 
    return (

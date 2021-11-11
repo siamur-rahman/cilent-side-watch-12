@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 import Doc from '../../../404.jpg'
 
 import './Error.css';

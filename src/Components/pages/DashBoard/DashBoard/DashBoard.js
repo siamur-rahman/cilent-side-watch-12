@@ -20,7 +20,7 @@ import MyOrders from '../../MyOrders/MyOrders';
 import { Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Payments from '../../Payments/Payments';
-import Review from '../../Review/Review';
+// import Review from '../../Review/Review';
 import useFirebase from '../../../hooks/useFirebase';
 import Button from '@restart/ui/esm/Button';
 
@@ -118,7 +118,7 @@ function DashBoard(props) {
                <Divider />
                <Payments></Payments>
                <Divider />
-               <Review></Review>
+               {/* <Review></Review> */}
             </Typography>
 
 
