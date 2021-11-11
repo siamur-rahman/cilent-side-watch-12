@@ -1,4 +1,4 @@
-# Thirst For watch galary client side
+#  watch galary client side
 
 lets see   [time] with (https://watch-6c93d.web.app/).
 
