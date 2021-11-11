@@ -30,7 +30,7 @@ const HeaderMain = () => {
 
                   <h4>Needs of Cuyahoga with <br />our  County for more than 110 years</h4><br /><br />
                   <p style={{ color: '#F0506F  ' }} className='text-white '>We are a fully accredited  by The Joint Commission, with a certified Level II Trauma Center. Cleveland Clinic Cancer Center at Fairview Hospital Moll Pavilion, located directly across the street from our main building…!</p>
-                  <a href="#book-ride" style={{ backgroundImage: 'linear-gradient(to left,#3645B1 , #1F2DD8,#1FA8D8 ,#1F73D8  )' }} className="btn btn-lg fw-bolder text-white">More watches</a>
+
                </div>
 
             </Grid>
