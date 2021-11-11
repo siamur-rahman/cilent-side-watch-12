@@ -8,7 +8,7 @@ import './Orders.css';
 
 
 const Order = ({ expert, service }) => {
-   // const { name, img, expertize } = expert;
+
 
 
 
