@@ -4,7 +4,9 @@ import {
   Switch,
   Route,
 
-} from "react-router-dom";
+}
+
+  from "react-router-dom";
 import AuthProvider from "./Components/contexts/AuthProvider";
 import About from "./Components/pages/About/About";
 
@@ -16,10 +18,11 @@ import PrivateRoute from "./Components/pages/PrivateRoute/PrivateRoute";
 import Register from "./Components/pages/ReGister/Register";
 import ServicesDetails from "./Components/pages/ServiceDetails/ServicesDetails";
 import AddNewServices from "./Components/pages/AddNewServices/AddNewServices";
-// import AllService from "./Components/pages/AllService/AllService";
+
 import AllServices from "./Components/pages/AllServices/AllServices";
-import DashBoard from "./Components/pages/DashBoard/DashBoard/DashBoard";
+
 import Payments from "./Components/pages/Payments/Payments";
+import DashBoard from "./Components/pages/DashBoard/DashBoard/DashBoard/DashBoard";
 
 
 

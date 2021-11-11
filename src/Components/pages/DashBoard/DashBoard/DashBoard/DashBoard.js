@@ -6,27 +6,27 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-// import InboxIcon from '@mui/icons-material/MoveToInbox';
-// import List from '@mui/material/List';
-// import ListItem from '@mui/material/ListItem';
-// import ListItemIcon from '@mui/material/ListItemIcon';
-// import ListItemText from '@mui/material/ListItemText';
-// import MailIcon from '@mui/icons-material/Mail';
+
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import MyOrders from '../../MyOrders/MyOrders';
-// import Order from '../../Orders/Order';
-// import { Nav } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import Payments from '../../Payments/Payments';
-// import Review from '../../Review/Review';
-import useFirebase from '../../../hooks/useFirebase';
 import Button from '@restart/ui/esm/Button';
 
-// import * as React from 'react';
-// import PropTypes from 'prop-types';
-// import Box from '@mui/material/Box';
+import {
+   Switch,
+   Route,
+   Link,
+   useRouteMatch
+} from "react-router-dom";
+
+import useFirebase from '../../../../hooks/useFirebase';
+
+import DashBoardHome from '../DashBoardHome/DashBoardHome';
+import MakeAdmin from '../../MakeAdmin/MakeAdmin';
+
+import useAuth from '../../../../hooks/useAuth';
+import AddNewServices from '../../../AddNewServices/AddNewServices';
+
 
 
 const drawerWidth = 200;
@@ -34,8 +34,9 @@ const drawerWidth = 200;
 function DashBoard(props) {
    const { window } = props;
    const [mobileOpen, setMobileOpen] = React.useState(false);
-   // const { sx, ...other } = props;
 
+   let { path, url } = useRouteMatch();
+   const { admin } = useAuth();
    const handleDrawerToggle = () => {
       setMobileOpen(!mobileOpen);
    };
@@ -57,12 +58,19 @@ function DashBoard(props) {
             }}
 
          >
-            <Link to="/pay"><Button color="inherit">Payments</Button></Link>
-            <Link to="/order"><Button color="inherit">Orders</Button></Link>
-            <Link to="/addNewService"><Button color="inherit">Add products</Button></Link>
-            <Link to="/order"><Button color="inherit">Make Admin</Button></Link>
-            <Link to="/order"><Button color="inherit">Manage all Orders</Button></Link>
+            <Link to={`${url}`}><Button color="inherit">Dash Board</Button></Link>
+            <Link to={`${url}/pay`}><Button color="inherit">Payments</Button></Link>
+            <Link to={`${url}/order`}><Button color="inherit">Orders</Button></Link>
 
+            {admin &&
+               <Box>
+                  <Link to={`${url}/addNewService`}><Button color="inherit">Add products</Button></Link>
+
+                  <Link to={`${url}/makeAdmin`}><Button color="inherit">Make Admin</Button></Link>
+                  <Link to="/allorder"><Button color="inherit">Manage all Orders</Button></Link>
+
+               </Box>
+            }
 
             <Button onClick={logout} color="inherit">Logout</Button>
          </Box>
@@ -133,14 +141,21 @@ function DashBoard(props) {
             sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
          >
             <Toolbar />
-            <Typography paragraph>
-               <MyOrders></MyOrders>
-               <Divider />
-               <Payments></Payments>
-               <Divider />
 
-            </Typography>
+            <Switch>
+               <Route exact path={path}>
+                  <DashBoardHome></DashBoardHome>
 
+
+                  {admin &&
+                     <Box>
+                        <AddNewServices></AddNewServices>
+                        <MakeAdmin></MakeAdmin>
+                     </Box>}
+               </Route>
+
+
+            </Switch>
 
          </Box>
       </Box>

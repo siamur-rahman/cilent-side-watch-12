@@ -7,12 +7,10 @@ import { Container, Card, Row, Col } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import { Grid } from '@mui/material';
 
-// import axios from 'axios';
-// import { Navbar } from 'react-bootstrap';
+
 
 import useFirebase from '../../hooks/useFirebase';
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
+
 import './ServiceDetails.css';
 
 
@@ -72,7 +70,7 @@ const ServicesDetails = () => {
 
    return (
       <div className="single-service">
-         <Header></Header>
+
          <Grid
             container
             direction="row"
@@ -134,7 +132,7 @@ const ServicesDetails = () => {
 
             </Container>
          </div>
-         <Footer></Footer>
+
       </div >
    );
 };

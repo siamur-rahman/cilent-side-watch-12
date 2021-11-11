@@ -4,8 +4,8 @@ import { Container, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 import { Grid } from '@mui/material';
 
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
+// import Header from '../Header/Header';
+// import Footer from '../Footer/Footer';
 import './AddNewServices.css';
 
 const AddNewServices = () => {
@@ -25,7 +25,7 @@ const AddNewServices = () => {
    }
    return (
       <div id="addNewService" className="add-service ">
-         <Header></Header>
+         {/* <Header></Header> */}
 
          <Container className="d-flex  justify-content-center ">
             <Grid
@@ -50,7 +50,7 @@ const AddNewServices = () => {
                </Row>
             </Grid>
          </Container>
-         <Footer></Footer>
+         {/* <Footer></Footer> */}
       </div>
    );
 };
