@@ -1,59 +1,59 @@
 
 import './Header.css';
+import React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import { Link, NavLink } from 'react-router-dom';
 
-import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import useAuth from '../../hooks/useAuth';
 
-import { HashLink } from 'react-router-hash-link';
-import Logo from '../../../logo-.jpg';
-import useFirebase from '../../hooks/useFirebase';
-import { Link } from 'react-router-dom';
-import { Box } from '@mui/system';
+
 
 const Header = () => {
-   const { user, logOut } = useFirebase();
-
+   const { user, logout } = useAuth();
    return (
-      <div className="">
-         <>
-            <Navbar bg="secondary" variant="dark" sticky="top" collapseOnSelect expand="lg" >
-               <Container>
+      <Box sx={{ flexGrow: 1 }}>
+         <AppBar position="static">
+            <Toolbar>
+               <IconButton
+                  size="large"
+                  edge="start"
+                  color="inherit"
+                  aria-label="menu"
+                  sx={{ mr: 2 }}
+               >
+                  <MenuIcon />
+               </IconButton>
+               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                  Watch Galary
+               </Typography>
+               <Link style={{ textDecoration: 'none', color: 'white', margin: 'none' }} to="/home#home"><Button color="inherit">Home</Button></Link>
+               <Link style={{ textDecoration: 'none', color: 'white', margin: 'none' }} to="/service"><Button color="inherit">Explore</Button></Link>
 
-                  <Navbar.Brand href="#home" className="text-warning"> <img src={Logo} style={{ height: '30px', width: '50px' }} alt="" /> Watch Galary</Navbar.Brand>
-                  <Navbar.Toggle />
-                  <Navbar.Collapse className="justify-content-end text-white">
-                     <Nav.Link as={HashLink} to="/home#home">Home</Nav.Link>
-                     <Nav.Link as={Link} to="/service">Explore pages</Nav.Link>
-
-
-                     {/* //admin er jpnnp */}
-                     {/* <Nav.Link as={Link} to="/addNewService">Add New  Products</Nav.Link> */}
-                     {/*  */}
-                     {user?.email ?
-                        <Box className="text-white bg-secondary d-flex " >
-
-                           <Nav.Link as={Link} to="/dashboard">Dash Board</Nav.Link>
-
-                           <Navbar.Text className="mx-2">
-                              Logged in  <a href="#login">{user?.displayName}</a>
-                           </Navbar.Text>
-                        </Box>
-
-                        :
-                        <Navbar.Text>
-                        </Navbar.Text>
-                     }
-                     {user?.email ?
-                        <Button className="text-white bg-secondary " onClick={logOut} > Logout </Button> :
-                        <Nav.Link as={Link} to="/login" className="text-white bg-secondary " >Login</Nav.Link>
-                     }
-
-                  </Navbar.Collapse>
-               </Container>
-            </Navbar>
-         </>
+               {
+                  user?.email ?
+                     <Box style={{ textDecoration: 'none', color: 'white', display: 'flex' }}>
+                        <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/dashboard">
+                           <Button color="inherit">Dashboard</Button>
+                        </NavLink>
+                        <Box> Logged in  <a href="#login">{user?.displayName}</a></Box>
+                        <Button onClick={logout} color="inherit">Logout</Button>
+                     </Box>
+                     :
+                     <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/login">
+                        <Button color="inherit">Login</Button>
+                     </NavLink>
+               }
+            </Toolbar>
+         </AppBar>
+      </Box>
 
 
-      </div>
    );
 };
 

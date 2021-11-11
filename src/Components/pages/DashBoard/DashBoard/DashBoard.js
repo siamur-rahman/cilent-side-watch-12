@@ -17,7 +17,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import MyOrders from '../../MyOrders/MyOrders';
 // import Order from '../../Orders/Order';
-import { Nav } from 'react-bootstrap';
+// import { Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Payments from '../../Payments/Payments';
 // import Review from '../../Review/Review';
@@ -33,18 +33,19 @@ function DashBoard(props) {
    const handleDrawerToggle = () => {
       setMobileOpen(!mobileOpen);
    };
-   const { logOut } = useFirebase();
+   const { logout } = useFirebase();
    const drawer = (
 
-      <div>
+      <Box>
          <Toolbar />
          <Divider />
-         <Nav.Link as={Link} to="/home">home</Nav.Link>
-         <Nav.Link as={Link} to="/pay">Payments</Nav.Link>
-         <Nav.Link as={Link} to="/order">Orders</Nav.Link>
-         <Button className="text-white bg-primary m-2" onClick={logOut} > Logout </Button>
 
-      </div>
+         <Link to="/pay"><Button color="inherit">Payments</Button></Link>
+         <Link to="/order"><Button color="inherit">Orders</Button></Link>
+         {/* <Button className="text-white bg-primary m-2" onClick={logOut} > Logout </Button> */}
+         <Button onClick={logout} color="inherit">Logout</Button>
+
+      </Box>
    );
 
    const container = window !== undefined ? () => window().document.body : undefined;
@@ -79,14 +80,14 @@ function DashBoard(props) {
             sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
             aria-label="mailbox folders"
          >
-            {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+
             <Drawer
                container={container}
                variant="temporary"
                open={mobileOpen}
                onClose={handleDrawerToggle}
                ModalProps={{
-                  keepMounted: true, // Better open performance on mobile.
+                  keepMounted: true,
                }}
                sx={{
                   display: { xs: 'block', sm: 'none' },
@@ -112,13 +113,11 @@ function DashBoard(props) {
          >
             <Toolbar />
             <Typography paragraph>
-
                <MyOrders></MyOrders>
-
                <Divider />
                <Payments></Payments>
                <Divider />
-               {/* <Review></Review> */}
+
             </Typography>
 
 
@@ -128,10 +127,7 @@ function DashBoard(props) {
 }
 
 DashBoard.propTypes = {
-   /**
-    * Injected by the documentation to work in an iframe.
-    * You won't need it on your project.
-    */
+
    window: PropTypes.func,
 };
 
