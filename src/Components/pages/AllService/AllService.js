@@ -8,14 +8,16 @@ import { Card, Row, Col } from 'react-bootstrap';
 
 const AllService = ({ service }) => {
 
-   const { _id, name, description, } = service;
+   const { _id, name, description, img } = service;
    // console.log(service2);
    return (
       <Grid
          container
          direction="row"
-         justifyContent="space-around"
+         justifyContent="center"
          alignItems="center"
+         backgroundColor="#e0e0e0"
+         padding="20px"
       >
 
 
@@ -23,7 +25,7 @@ const AllService = ({ service }) => {
             <Col md={5}>
                <div>
                   <Card>
-                     <Card.Img variant="top" src="{img}" />
+                     <Card.Img variant="top" src={img} />
                   </Card>
                </div>
             </Col>
@@ -37,13 +39,14 @@ const AllService = ({ service }) => {
                   </Card.Body>
                </Card>
             </Col>
+            <Link to={`/home/${_id}`}>
+               <div className=" w-100 align-items-center ">
+                  <button className="  btn-warn mt-3">
+                     <FontAwesomeIcon icon={faShoppingCart} /> Buy now </button>
+               </div>
+            </Link>
          </Row>
-         <Link to={`/home/${_id}`}>
-            <div className=" w-100 align-items-center ">
-               <button className="  btn-warn mt-3">
-                  <FontAwesomeIcon icon={faShoppingCart} /> Buy now </button>
-            </div>
-         </Link>
+
       </Grid>
    );
 };

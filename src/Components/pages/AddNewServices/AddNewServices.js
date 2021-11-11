@@ -13,7 +13,7 @@ const AddNewServices = () => {
 
    const onSubmit = data => {
       console.log(data);
-      axios.post('http://localhost:5000/services', data)
+      axios.post('https://sheltered-harbor-10216.herokuapp.com/services', data)
          .then(res => {
 
             if (res.insertedId) {

@@ -10,7 +10,7 @@ const Review = () => {
          justifyContent="center"
          alignItems="center"
          padding="30px"
-
+         backgroundColor="#e0e0e0"
 
       >
          <h2>this is review section</h2>

@@ -9,7 +9,7 @@ import { Grid } from '@mui/material';
 
 const Service = ({ service }) => {
     const { _id, name, description, img } = service;
-
+    console.log(name);
     return (
 
         <Grid
@@ -18,6 +18,7 @@ const Service = ({ service }) => {
             justifyContent="center"
             alignItems="center"
             sx={{ width: '100%' }}
+            backgroundColor="#e0e0e0"
         >
             <Row>
                 <Col md={6}>

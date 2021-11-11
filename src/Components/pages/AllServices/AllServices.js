@@ -11,7 +11,7 @@ import Header from '../Header/Header';
 const AllServices = () => {
    const [services, setServices] = useState([])
    useEffect(() => {
-      fetch('http://localhost:5000/services')
+      fetch('https://sheltered-harbor-10216.herokuapp.com/services/')
          .then(res => res.json())
          .then(data => setServices(data));
    }, [])
@@ -24,19 +24,12 @@ const AllServices = () => {
             direction="row"
             justifyContent="center"
             alignItems="center"
+            backgroundColor="#e0e0e0"
          >
-            <h2 className=" mt-5 d-flex justify-content-center">Watches</h2>
+            <h2 className=" mt-5 d-flex justify-content-center">Watch Collections</h2>
 
          </Grid>
-         {/* <Grid
-            container
-            direction="row"
-            justifyContent="center"
-            alignItems="center"
-         >
-            <h2 className=" mt-5 d-flex justify-content-center">Watches</h2>
 
-         </Grid> */}
          <hr />
 
 

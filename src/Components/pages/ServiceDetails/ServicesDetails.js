@@ -25,7 +25,7 @@ const ServicesDetails = () => {
    const [deleteService, setDeleteService] = useState([]);
 
    useEffect(() => {
-      const url = `http://localhost:5000/services/${id}`;
+      const url = `https://sheltered-harbor-10216.herokuapp.com/services/${id}`;
       // console.log(url);
       fetch(url)
          .then(res => res.json())
@@ -40,7 +40,7 @@ const ServicesDetails = () => {
 
    //delete
    useEffect(() => {
-      fetch(`http://localhost:5000/orders/${id}`)
+      fetch(`https://sheltered-harbor-10216.herokuapp.com/orders/${id}`)
          .then(res => res.json())
          .then(data => setDeleteService(data));
    }, [id])
@@ -49,7 +49,7 @@ const ServicesDetails = () => {
 
       const proced = window.confirm('are you sure , you want to delete');
       if (proced) {
-         const url = `http://localhost:5000/services/${id}`;
+         const url = `https://sheltered-harbor-10216.herokuapp.com/services/${id}`;
          fetch(url, {
             method: 'DELETE'
 
