@@ -10,6 +10,7 @@ import { Grid } from '@mui/material';
 
 
 import useFirebase from '../../hooks/useFirebase';
+import useAuth from '../../../Components/hooks/useAuth';
 
 import './ServiceDetails.css';
 
@@ -20,7 +21,7 @@ const ServicesDetails = () => {
    const { user } = useFirebase();
    const { id } = useParams();
    const [services, setServices] = useState([]);
-
+   const { admin } = useAuth();
    //delete
    const [deleteService, setDeleteService] = useState([]);
 
@@ -102,32 +103,35 @@ const ServicesDetails = () => {
                               <textarea {...register("address")} placeholder="address" /><br />
                               <input type="number" {...register("phone")} placeholder="phone" /><br />
                               <input type="submit" />
-
+                              <Link to={`/`}>
+                                 <button onClick={() => handleDeleteUser(deleteService._id)} className=" details-btn btn btn-warning"><FontAwesomeIcon icon={faTrashAlt} />CENCEL</button>
+                              </Link>
                            </form>
                         </Col>
                      </Grid>
                   </Row>
-                  <Row className=" d-flex flex-direction-column w-100 justify-content-center  mb-5 " >
-                     <Col md={6}>
-                        <Card style={{ width: '18rem' }}>
-                           <div className="">
-                              <Card className="single-service">
+                  {!admin &&
+                     <Row className=" d-flex flex-direction-column w-100 justify-content-center  mb-5 " >
+                        <Col md={6}>
+                           <Card style={{ width: '18rem' }}>
+                              <div className="">
+                                 <Card className="single-service">
 
-                                 <Card.Title>Get this </Card.Title>
-                                 <Card.Img variant="top" src={services.img} />
-                              </Card>
-                           </div>
-                           <Card.Body className="cardss">
-                              <Card.Title>{services.name}</Card.Title>
-                              <Card.Text>{services.description}
-                              </Card.Text>
-                              <Link to={`/`}>
-                                 <button onClick={() => handleDeleteUser(deleteService._id)} className=" details-btn btn btn-warning"><FontAwesomeIcon icon={faTrashAlt} />CENCEL</button>
-                              </Link>
-                           </Card.Body>
-                        </Card>
-                     </Col>
-                  </Row>
+                                    <Card.Title>Get this </Card.Title>
+                                    <Card.Img variant="top" src={services.img} />
+                                 </Card>
+                              </div>
+                              <Card.Body className="cardss">
+                                 <Card.Title>{services.name}</Card.Title>
+                                 <Card.Text>{services.description}
+                                 </Card.Text>
+                                 <Link to={`/`}>
+                                    <button onClick={() => handleDeleteUser(deleteService._id)} className=" details-btn btn btn-warning"><FontAwesomeIcon icon={faTrashAlt} />CENCEL</button>
+                                 </Link>
+                              </Card.Body>
+                           </Card>
+                        </Col>
+                     </Row>}
                </Grid>
 
             </Container>
