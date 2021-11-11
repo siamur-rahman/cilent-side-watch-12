@@ -1,10 +1,18 @@
 import React from 'react';
+import { Grid } from '@mui/material';
 
 const Extra = () => {
    return (
-      <div className="  d-flex justify-content-center my-5">
+      <Grid
+         container
+         direction="row"
+         justifyContent="center"
+         alignItems="center"
+         padding="30px"
+
+      >
          <h2>EXTRA section</h2>
-      </div>
+      </Grid>
    );
 };
 

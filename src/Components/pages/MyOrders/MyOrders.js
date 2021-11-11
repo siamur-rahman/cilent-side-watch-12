@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
+// import Header from '../Header/Header';
+// import Footer from '../Footer/Footer';
 import './MyOrders.css';
 import Order from '../Orders/Order';
 import { Link } from 'react-router-dom';

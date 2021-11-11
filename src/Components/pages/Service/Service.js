@@ -3,24 +3,31 @@ import { Link } from 'react-router-dom';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Service.css';
-import { Container, Card, Row, Col } from 'react-bootstrap';
+import { Card, Row, Col } from 'react-bootstrap';
+import { Grid } from '@mui/material';
 
 
 const Service = ({ service }) => {
     const { _id, name, description, img } = service;
-    // const { id } = service;
-    return (
-        <Container className=" p-5 service-cards">
 
+    return (
+
+        <Grid
+            container
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+            sx={{ width: '100%' }}
+        >
             <Row>
-                <Col md={5}>
+                <Col md={6}>
                     <div>
                         <Card>
                             <Card.Img variant="top" src={img} />
                         </Card>
                     </div>
                 </Col>
-                <Col md={7}>
+                <Col md={6}>
                     <Card style={{ width: '18rem' }} >
                         <Card.Body className="cart-dody">
 
@@ -30,15 +37,16 @@ const Service = ({ service }) => {
                         </Card.Body>
                     </Card>
                 </Col>
+                <Link to={`/home/${_id}`}>
+                    <div className=" w-100 align-items-center ">
+                        <button className="  btn-warn mt-3">
+                            <FontAwesomeIcon icon={faShoppingCart} /> Buy now </button>
+                    </div>
+                </Link>
             </Row>
-            <Link to={`/home/${_id}`}>
-                <div className=" w-100 align-items-center ">
-                    <button className="  btn-warn mt-3">
-                        <FontAwesomeIcon icon={faShoppingCart} /> Buy now </button>
-                </div>
-            </Link>
 
-        </Container>
+        </Grid>
+
     );
 };
 

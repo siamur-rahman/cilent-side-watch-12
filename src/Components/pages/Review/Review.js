@@ -1,11 +1,22 @@
 import React from 'react';
+import { Grid } from '@mui/material';
 
 const Review = () => {
    return (
-      <div className="  d-flex justify-content-center my-5">
+
+      <Grid
+         container
+         direction="row"
+         justifyContent="center"
+         alignItems="center"
+         padding="30px"
+
+
+      >
          <h2>this is review section</h2>
-      </div>
+      </Grid>
    );
 };
 
 export default Review;
+

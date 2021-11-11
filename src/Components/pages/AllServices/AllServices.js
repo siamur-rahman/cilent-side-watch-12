@@ -1,3 +1,4 @@
+import { Grid } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import AllService from '../AllService/AllService';
 
@@ -18,10 +19,24 @@ const AllServices = () => {
    return (
       <div id="service" >
          <Header></Header>
+         <Grid
+            container
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+         >
+            <h2 className=" mt-5 d-flex justify-content-center">Watches</h2>
 
+         </Grid>
+         {/* <Grid
+            container
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+         >
+            <h2 className=" mt-5 d-flex justify-content-center">Watches</h2>
 
-
-         <h2 className=" mt-5 d-flex justify-content-center">Watches</h2>
+         </Grid> */}
          <hr />
 
 

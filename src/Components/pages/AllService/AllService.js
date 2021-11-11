@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-import { Container, Card, Row, Col } from 'react-bootstrap';
+import { Grid } from '@mui/material';
+import { Card, Row, Col } from 'react-bootstrap';
 
 
 const AllService = ({ service }) => {
@@ -11,7 +11,12 @@ const AllService = ({ service }) => {
    const { _id, name, description, } = service;
    // console.log(service2);
    return (
-      <Container className=" p-5 service-cards">
+      <Grid
+         container
+         direction="row"
+         justifyContent="space-around"
+         alignItems="center"
+      >
 
 
          <Row>
@@ -39,7 +44,7 @@ const AllService = ({ service }) => {
                   <FontAwesomeIcon icon={faShoppingCart} /> Buy now </button>
             </div>
          </Link>
-      </Container>
+      </Grid>
    );
 };
 
