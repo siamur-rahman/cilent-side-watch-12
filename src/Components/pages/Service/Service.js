@@ -19,6 +19,7 @@ const Service = ({ service }) => {
             alignItems="center"
             sx={{ width: '100%' }}
             backgroundColor="#e0e0e0"
+            padding="5px"
         >
             <Row>
                 <Col md={6}>
@@ -40,7 +41,7 @@ const Service = ({ service }) => {
                 </Col>
                 <Link to={`/home/${_id}`}>
                     <div className=" w-100 align-items-center ">
-                        <button className="  btn-warn mt-3">
+                        <button className="  btn-warn my-3">
                             <FontAwesomeIcon icon={faShoppingCart} /> Buy now </button>
                     </div>
                 </Link>
