@@ -15,9 +15,7 @@ const DashBoardHome = () => {
             <ServicesDetails></ServicesDetails>
             <Divider />
 
-            <Divider />
 
-            <Divider />
 
          </Typography>
       </div>

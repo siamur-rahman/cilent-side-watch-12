@@ -26,8 +26,8 @@ const ServicesDetails = () => {
    const [deleteService, setDeleteService] = useState([]);
 
    useEffect(() => {
-      const url = `https://sheltered-harbor-10216.herokuapp.com/services/?${id}`;
-      // console.log(url);
+      const url = `https://sheltered-harbor-10216.herokuapp.com/services/${id}`;
+
       fetch(url)
          .then(res => res.json())
 
