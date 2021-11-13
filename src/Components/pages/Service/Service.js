@@ -9,7 +9,7 @@ import { Grid } from '@mui/material';
 
 const Service = ({ service }) => {
     const { _id, name, description, img } = service;
-    console.log(name);
+
     return (
 
         <Grid
