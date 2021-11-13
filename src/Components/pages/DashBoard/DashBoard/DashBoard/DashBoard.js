@@ -26,7 +26,9 @@ import MakeAdmin from '../../MakeAdmin/MakeAdmin';
 
 import useAuth from '../../../../hooks/useAuth';
 import AddNewServices from '../../../AddNewServices/AddNewServices';
-
+import Payments from '../../../Payments/Payments';
+import Order from '../../../Orders/Order';
+import MyOrders from '../../../MyOrders/MyOrders';
 
 
 const drawerWidth = 200;
@@ -67,7 +69,7 @@ function DashBoard(props) {
                   <Link to={`${url}/addNewService`}><Button color="inherit">Add products</Button></Link>
 
                   <Link to={`${url}/makeAdmin`}><Button color="inherit">Make Admin</Button></Link>
-                  <Link to="/allorder"><Button color="inherit">Manage all Orders</Button></Link>
+                  <Link to={`${url}/myOrder`}><Button color="inherit">Manage all Orders</Button></Link>
 
                </Box>
             }
@@ -145,14 +147,24 @@ function DashBoard(props) {
             <Switch>
                <Route exact path={path}>
                   <DashBoardHome></DashBoardHome>
-
-
-                  {admin &&
-                     <Box>
-                        <AddNewServices></AddNewServices>
-                        <MakeAdmin></MakeAdmin>
-                     </Box>}
                </Route>
+               <Route exact path={`${path}/pay`}>
+                  <Payments></Payments>
+               </Route>
+               <Route exact path={`${path}/order`}>
+                  <Order></Order>
+               </Route>
+
+               <Route exact path={`${path}/myOrder`}>
+                  <MyOrders></MyOrders>
+               </Route>
+               <Route exact path={`${path}/addNewService`}>
+                  <AddNewServices></AddNewServices>
+               </Route>
+               <Route exact path={`${path}/makeAdmin`}>
+                  <MakeAdmin></MakeAdmin>
+               </Route>
+
 
 
             </Switch>

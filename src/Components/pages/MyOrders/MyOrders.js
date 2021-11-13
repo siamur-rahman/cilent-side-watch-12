@@ -11,7 +11,7 @@ const MyOrders = () => {
       <div id="myOrder" className="Order  d-flex justify-content-center my-5">
 
          <div className="container mb-5">
-            <div className="d-flex justify-content-around"> <h2 className="text-primary m-3">My Orders</h2>
+            <div className="d-flex justify-content-around"> <h2 className="text-primary m-3">Manage all Orders</h2>
                <Link to="/"><button className="btn btn-primary mx-5">Go Back home</button>
                </Link></div>
 
