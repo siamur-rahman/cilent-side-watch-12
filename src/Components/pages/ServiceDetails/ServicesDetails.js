@@ -32,7 +32,7 @@ const ServicesDetails = () => {
          .then(res => res.json())
 
          .then(data => setServices(data))
-   }, [id])
+   }, [])
 
    const onSubmit = data => {
       console.log(data);
@@ -44,7 +44,7 @@ const ServicesDetails = () => {
       fetch(`https://sheltered-harbor-10216.herokuapp.com/orders/${id}`)
          .then(res => res.json())
          .then(data => setDeleteService(data));
-   }, [id])
+   }, [])
 
    const handleDeleteUser = id => {
 
@@ -60,7 +60,7 @@ const ServicesDetails = () => {
             .then(data => {
                if (data.deletedCount > 0) {
                   alert('deleted successfully')
-                  const remainingUsers = deleteService.filter(user => user._id !== id)
+                  const remainingUsers = deleteService.filter(user => user?._id !== id)
                   setDeleteService(remainingUsers);
                }
                // setUsers(data) 
@@ -98,8 +98,8 @@ const ServicesDetails = () => {
 
                            <form onSubmit={handleSubmit(onSubmit)}>
 
-                              <input type="email" {...register("email")} value={user.email} placeholder="email" /><br />
-                              <input {...register("name")} value={user.displayName} placeholder="name" /><br />
+                              <input type="email" {...register("email")} value={user?.email} placeholder="email" /><br />
+                              <input {...register("name")} value={user?.displayName} placeholder="name" /><br />
                               <textarea {...register("address")} placeholder="address" /><br />
                               <input type="number" {...register("phone")} placeholder="phone" /><br />
                               <input type="submit" />
@@ -110,28 +110,28 @@ const ServicesDetails = () => {
                         </Col>
                      </Grid>
                   </Row>
-                  {!admin &&
-                     <Row className=" d-flex flex-direction-column w-100 justify-content-center  mb-5 " >
-                        <Col md={6}>
-                           <Card style={{ width: '18rem' }}>
-                              <div className="">
-                                 <Card className="single-service">
 
-                                    <Card.Title>Get this </Card.Title>
-                                    <Card.Img variant="top" src={services?.img} />
-                                 </Card>
-                              </div>
-                              <Card.Body className="cardss">
-                                 <Card.Title>{services?.name}</Card.Title>
-                                 <Card.Text>{services?.description}
-                                 </Card.Text>
-                                 <Link to={`/`}>
-                                    <button onClick={() => handleDeleteUser(deleteService?._id)} className=" details-btn btn btn-warning"><FontAwesomeIcon icon={faTrashAlt} />CENCEL</button>
-                                 </Link>
-                              </Card.Body>
-                           </Card>
-                        </Col>
-                     </Row>}
+                  <Row className=" d-flex flex-direction-column w-100 justify-content-center  mb-5 " >
+                     <Col md={6}>
+                        <Card style={{ width: '18rem' }}>
+                           <div className="">
+                              <Card className="single-service">
+
+                                 <Card.Title>Get this </Card.Title>
+                                 <Card.Img variant="top" src={services?.img} />
+                              </Card>
+                           </div>
+                           <Card.Body className="cardss">
+                              <Card.Title>{services?.name}</Card.Title>
+                              <Card.Text>{services?.description}
+                              </Card.Text>
+                              <Link to={`/`}>
+                                 <button onClick={() => handleDeleteUser(deleteService?._id)} className=" details-btn btn btn-warning"><FontAwesomeIcon icon={faTrashAlt} />CENCEL</button>
+                              </Link>
+                           </Card.Body>
+                        </Card>
+                     </Col>
+                  </Row>
                </Grid>
 
             </Container>
