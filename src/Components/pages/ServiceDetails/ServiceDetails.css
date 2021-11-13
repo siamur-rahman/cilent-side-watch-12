@@ -11,9 +11,11 @@
    border-radius: 25px;
 }
 .details-btn{
-   background-color: rgba(0, 68, 128, 0.605);
+   background-color: rgba(56, 93, 124, 0.605);
    border: none;
    text-decoration: none;
+   width: 100%;
+   padding:3px
 }
 .details-btn:hover{
    background-color: rgba(160, 66, 8, 0.886);
