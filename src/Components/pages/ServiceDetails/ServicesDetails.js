@@ -10,7 +10,7 @@ import { Grid } from '@mui/material';
 
 
 import useFirebase from '../../hooks/useFirebase';
-import useAuth from '../../../Components/hooks/useAuth';
+// import useAuth from '../../../Components/hooks/useAuth';
 
 import './ServiceDetails.css';
 
@@ -22,7 +22,7 @@ const ServicesDetails = () => {
    const { id } = useParams();
 
    const [services, setServices] = useState([]);
-   const { admin } = useAuth();
+   // const { admin } = useAuth();
    //delete
    const [deleteService, setDeleteService] = useState([]);
 
@@ -33,7 +33,7 @@ const ServicesDetails = () => {
          .then(res => res.json())
 
          .then(data => setServices(data))
-   }, [])
+   }, [id])
 
    const onSubmit = data => {
       console.log(data);
@@ -46,7 +46,7 @@ const ServicesDetails = () => {
       fetch(`https://sheltered-harbor-10216.herokuapp.com/orders/${id}`)
          .then(res => res.json())
          .then(data => setDeleteService(data));
-   }, [])
+   }, [id])
 
    const handleDeleteUser = id => {
 

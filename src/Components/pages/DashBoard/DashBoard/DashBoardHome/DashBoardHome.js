@@ -4,7 +4,7 @@ import React from 'react';
 
 
 import { Divider, Typography } from '@mui/material';
-import ServicesDetails from '../../../ServiceDetails/ServicesDetails';
+// import ServicesDetails from '../../../ServiceDetails/ServicesDetails';
 import Payments from '../../../Payments/Payments';
 
 
