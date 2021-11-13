@@ -20,6 +20,7 @@ const ServicesDetails = () => {
    const { register, handleSubmit } = useForm();
    const { user } = useFirebase();
    const { id } = useParams();
+
    const [services, setServices] = useState([]);
    const { admin } = useAuth();
    //delete
@@ -38,6 +39,7 @@ const ServicesDetails = () => {
       console.log(data);
 
    }
+
 
    //delete
    useEffect(() => {
