@@ -104,7 +104,7 @@ const ServicesDetails = () => {
                               <input type="number" {...register("phone")} placeholder="phone" /><br />
                               <input type="submit" />
                               <Link to={`/`}>
-                                 <button onClick={() => handleDeleteUser(deleteService._id)} className=" details-btn btn btn-warning"><FontAwesomeIcon icon={faTrashAlt} />CENCEL</button>
+                                 <button onClick={() => handleDeleteUser(deleteService?._id)} className=" details-btn btn btn-warning"><FontAwesomeIcon icon={faTrashAlt} />CENCEL</button>
                               </Link>
                            </form>
                         </Col>
@@ -118,15 +118,15 @@ const ServicesDetails = () => {
                                  <Card className="single-service">
 
                                     <Card.Title>Get this </Card.Title>
-                                    <Card.Img variant="top" src={services.img} />
+                                    <Card.Img variant="top" src={services?.img} />
                                  </Card>
                               </div>
                               <Card.Body className="cardss">
-                                 <Card.Title>{services.name}</Card.Title>
-                                 <Card.Text>{services.description}
+                                 <Card.Title>{services?.name}</Card.Title>
+                                 <Card.Text>{services?.description}
                                  </Card.Text>
                                  <Link to={`/`}>
-                                    <button onClick={() => handleDeleteUser(deleteService._id)} className=" details-btn btn btn-warning"><FontAwesomeIcon icon={faTrashAlt} />CENCEL</button>
+                                    <button onClick={() => handleDeleteUser(deleteService?._id)} className=" details-btn btn btn-warning"><FontAwesomeIcon icon={faTrashAlt} />CENCEL</button>
                                  </Link>
                               </Card.Body>
                            </Card>
